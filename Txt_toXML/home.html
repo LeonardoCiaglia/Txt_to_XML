@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="images/ico.png">
+    <title>Txt TO XML</title>
+</head>
+<style>
+    html {
+        font-family: 'Open Sans';
+        overflow: hidden;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    header {
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+        width: 100%;
+        padding: 20px;
+        background-color: #004aad;
+        text-align: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+    }
+
+    footer {
+        font-size: 14px;
+        font-weight: bold;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: 20px;
+        position: absolute;
+        text-align: center;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    textarea {
+        font-size: 14px;
+        resize: none;
+        background-color: rgb(223, 223, 223);
+        margin: 20px;
+
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    button {
+        background-color: #004aad;
+        color: white;
+        border: 0;
+        padding: 10px;
+        font-size: 20px;
+        margin: 20px;
+        width: 150px;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-color: #3362a0;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .textarea-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 90%; 
+            height: 150px; 
+        }
+
+        button {
+            width: 100%; 
+            font-size: 18px; 
+        }
+    }
+
+    @media (max-width: 480px) {
+        header {
+            font-size: 18px;
+        }
+
+        footer {
+            font-size: 12px; 
+        }
+
+        textarea {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        Txt TO XML
+    </header>
+
+    <main>
+        <div class="textarea-container">
+            <textarea cols="75" rows="25" placeholder="Copia il tuo testo qui..." id="userInput"></textarea>
+            <textarea cols="75" rows="25" placeholder="XML..." id="output"></textarea>
+        </div>
+
+        <div class="center">
+            <button onclick="clean()">Clean</button>
+            <button onclick="toXML()">Convert</button>
+            <a href="howTo.html"><button>How To...</button></a>
+        </div>
+    </main>
+
+    <footer>
+        🚀 Leonardo Ciaglia
+    </footer>
+</body>
+
+<script src="script.js"></script>
+</html>

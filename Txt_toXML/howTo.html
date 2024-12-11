@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="images/ico.png">
+    <title>Guida alla Conversione di Testo in XML</title>
+    <style>
+        html {
+            font-family: 'Open Sans';
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            width: 100%;
+            padding: 20px;
+            background-color: #004aad;
+            text-align: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            position: relative;
+        }
+
+        footer {
+            font-size: 14px;
+            font-weight: bold;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+            text-align: center;
+        }
+
+        textarea {
+            font-size: 14px;
+            resize: none;
+            background-color: rgb(223, 223, 223);
+            margin: 20px;
+            width: 80%;
+            height: 150px;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        button {
+            background-color: #004aad;
+            color: white;
+            border: 0;
+            padding: 10px;
+            font-size: 20px;
+            margin: 20px;
+            width: 200px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: #3362a0;
+        }
+
+        #btnHome{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .instructions {
+            margin: 20px;
+            font-size: 16px;
+            text-align: left;
+            width: 80%;
+        }
+
+        .example-code {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 768px) {
+            textarea {
+                width: 90%;
+                height: 120px;
+            }
+
+            button {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 20px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+
+            textarea {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Guida alla Conversione di Testo in XML
+    </header>
+
+    <main>
+        <div class="instructions">
+            <h2>Come Scrivere un File per la Conversione in XML</h2>
+            <p>Questa pagina ti spiegherà come scrivere un file di testo che può essere facilmente convertito in formato XML. Segui attentamente i seguenti passaggi per preparare il tuo file di testo.</p>
+
+            <h3>Passo 1: Scrivere il Testo</h3>
+            <p>Nel file di testo, dovrai seguire una struttura separata da `:` per i dati e `,` per gli attributi. Se hai un elenco di indirizzi o altre voci multiple, separale con `;`. Ecco un esempio di come organizzare i tuoi dati:</p>
+
+            <div class="example-code">
+                name: John <br>
+                age: 30 <br>
+                indirizzi: Via Roma, 123, Milano; Via Milano, 456, Roma <br>
+                hobby: Programming
+            </div>
+
+            <p><strong>Spiegazione:</strong></p>
+            <ul>
+                <li><strong>name:</strong> definisce il nome dell'elemento.</li>
+                <li><strong>age:</strong> definisce l'età dell'elemento.</li>
+                <li><strong>indirizzi:</strong> separa gli indirizzi con `;` per indicare più indirizzi (in questo caso, "Via Roma, 123, Milano" e "Via Milano, 456, Roma").</li>
+                <li><strong>hobby:</strong> aggiungi altre voci come hobby separandole con `:` e `,`.</li>
+            </ul>
+
+            <h3>Passo 2: Inserire il Testo nel Modulo</h3>
+            <p>Inserisci il testo nel campo sottostante, assicurandoti di rispettare la sintassi descritta nei passi precedenti.</p>
+
+            <textarea id="textInput" placeholder="Copia il tuo testo qui..."></textarea>
+
+            <button>Converti in XML</button>
+
+            <h3>Passo 3: Conversione in XML</h3>
+            <p>Cliccando sul pulsante, il tuo testo verrà convertito in formato XML. Ecco un esempio di come apparirà il file XML risultante:</p>
+
+            <div class="example-code">
+                <strong>&lt;root&gt;</strong><br>
+                &nbsp;&nbsp;&lt;name&gt;John&lt;/name&gt;<br>
+                &nbsp;&nbsp;&lt;age&gt;30&lt;/age&gt;<br>
+                &nbsp;&nbsp;&lt;indirizzi&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;indirizzo&gt;Via Roma, 123, Milano&lt;/indirizzo&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;indirizzo&gt;Via Milano, 456, Roma&lt;/indirizzo&gt;<br>
+                &nbsp;&nbsp;&lt;/indirizzi&gt;<br>
+                &nbsp;&nbsp;&lt;hobby&gt;Programming&lt;/hobby&gt;<br>
+                <strong>&lt;/root&gt;</strong>
+            </div>
+        </div>
+        
+        <a href="home.html">
+            <button id="btnHome">
+                <img src="images/home.png" alt="Icona Home"/>
+            </button>
+        </a>
+    </main>
+
+    <footer>
+        🚀 Leonardo Ciaglia
+    </footer>
+</body>
+</html>
